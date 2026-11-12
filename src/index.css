@@ -1,0 +1,302 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #f4f1fa;
+  background: #120d1d;
+  --purple: #4b2e83;
+  --gold: #b7a57a;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--gold);
+}
+
+nav button,
+.filters button {
+  background: none;
+  border: none;
+  color: #b9b0cc;
+  padding: 6px 8px;
+  border-radius: 999px;
+}
+
+nav button.on,
+.filters button.on {
+  color: white;
+  background: var(--purple);
+}
+
+.filters {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 0 12px 8px;
+  scrollbar-width: none;
+}
+
+.filters button {
+  white-space: nowrap;
+  border: 1px solid #2e2541;
+}
+
+/* vertical reels, one club per screen */
+.feed {
+  flex: 1;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+}
+
+.reel {
+  height: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px 12px;
+  gap: 12px;
+  overflow-x: hidden;
+}
+
+.card {
+  position: relative;
+  flex: 1;
+  border-radius: 24px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  touch-action: pan-y;
+  user-select: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.emoji {
+  font-size: 84px;
+  margin-bottom: auto;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.description,
+.meets {
+  margin: 0;
+  opacity: 0.92;
+  line-height: 1.4;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.18);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.commit-high {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.vibes {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.stamp {
+  position: absolute;
+  top: 28px;
+  padding: 4px 12px;
+  border: 3px solid;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 26px;
+  transform: rotate(-12deg);
+}
+
+.stamp-save {
+  left: 22px;
+  color: #6ee7a8;
+}
+
+.stamp-skip {
+  right: 22px;
+  color: #ff8a8a;
+  transform: rotate(12deg);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.btn.skip {
+  background: #3a2f4f;
+}
+
+.btn.save {
+  background: #e0457b;
+}
+
+.onboarding {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 48px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.onboarding h1 {
+  margin: 0;
+}
+
+.onboarding p {
+  margin: 0;
+  color: #b9b0cc;
+}
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.interest {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #2e2541;
+  background: #1c1530;
+  color: inherit;
+}
+
+.interest.on {
+  background: var(--purple);
+  border-color: var(--gold);
+}
+
+.primary {
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: var(--gold);
+  color: #1b1328;
+  font-weight: 700;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #b9b0cc;
+  text-align: center;
+  padding: 24px;
+}
+
+.saved-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.saved-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1c1530;
+  border-left: 5px solid;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.saved-list li div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.saved-list small {
+  color: #b9b0cc;
+}
+
+.saved-emoji {
+  font-size: 28px;
+}
+
+.saved-list button {
+  background: none;
+  border: 1px solid #3a2f4f;
+  color: #b9b0cc;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: #6f6585;
+  padding: 6px;
+}
